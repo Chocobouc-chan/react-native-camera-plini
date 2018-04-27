@@ -2,6 +2,7 @@ package com.awesomeproject;
 
 import android.app.Application;
 
+import com.awesomeproject.cameradetails.CameraDetailsPackage;
 import com.facebook.react.ReactApplication;
 import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
@@ -9,6 +10,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
+import com.awesomeproject.cameradetails.CameraDetailsPackage;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,7 +26,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNCameraPackage()
+            new RNCameraPackage(),
+              new CameraDetailsPackage()
       );
     }
 
