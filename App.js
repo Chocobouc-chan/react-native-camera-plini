@@ -13,11 +13,6 @@ import {
     ToastAndroid
 } from 'react-native';
 
-
-type
-Props = {};
-const actualPlatform = Platform.OS;
-
 export default class App extends Component {
     render() {
         return (
@@ -52,20 +47,6 @@ export default class App extends Component {
                     </TouchableOpacity>
                 </View>
             </View>
-            /*
-                        <View>
-                            <Text>
-                                We will set the navigation bar color! {this.state.name}
-                            </Text>
-                            <Text>
-                                cameras id: {JSON.stringify(this.state.cameraId)}
-                            </Text>
-                            <Text>
-                                {this.state.cameraDetails}
-                            </Text>
-                        </View>
-            */
-
         );
     }
 
