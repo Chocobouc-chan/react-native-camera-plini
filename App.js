@@ -19,21 +19,6 @@ Props = {};
 const actualPlatform = Platform.OS;
 
 export default class App extends Component {
-
-    constructor(){
-        super();
-        this.state={name:"Yolo", cameraId:{}, cameraDetails:""}
-    }
-
-    componentWillMount() {
-        CameraDetails.getCameras((msg) => {
-            this.setState({cameraId:msg})
-        })
-        CameraDetails.getCameraDetails("0", (msg) => {
-            this.setState({cameraDetails:msg})
-        })
-    }
-
     render() {
         return (
             <View style={styles.container}>
