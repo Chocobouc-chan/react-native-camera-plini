@@ -13,7 +13,6 @@ import {
     ToastAndroid
 } from 'react-native';
 
-import CameraDetails from './native-camera-details'
 
 type
 Props = {};
@@ -46,8 +45,6 @@ export default class App extends Component {
                     type={RNCamera.Constants.Type.back}
                     autoFocus={true}
                     flashMode={RNCamera.Constants.FlashMode.off}
-                    permissionDialogTitle={'Permission to use camera'}
-                    permissionDialogMessage={'We need your permission to use your camera phone'}
                 />
                 <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center',}}>
                     <TouchableOpacity
@@ -68,12 +65,6 @@ export default class App extends Component {
                     >
                         <Text style={{fontSize: 10}}> Stop Film </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={this.getCharacs.bind(this)}
-                        style={styles.capture}
-                    >
-                        <Text style={{fontSize: 10}}> Get characs </Text>
-                    </TouchableOpacity>
                 </View>
             </View>
             /*
@@ -93,13 +84,6 @@ export default class App extends Component {
         );
     }
 
-    getCharacs = async function () {
-        if (this.camera) {
-            let characs = await this.camera.getSupportedRatiosAsync();
-            ToastAndroid.show(JSON.stringify(characs), ToastAndroid.SHORT);
-        }
-    }
-
     takePicture = async function () {
         if (this.camera) {
             const options = {quality: 1, base64: true};
@@ -111,7 +95,7 @@ export default class App extends Component {
 
     startRecord = async function () {
         if (this.camera) {
-            const options = {quality: RNCamera.Constants.VideoQuality["1080p"], mute: true, ratio: "3:2"}
+            const options = {quality: RNCamera.Constants.VideoQuality["1080p"], mute: true}
             const data = await this.camera.recordAsync(options)
             CameraRoll.saveToCameraRoll(data.uri)
             console.log(data.uri);
