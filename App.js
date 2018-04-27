@@ -13,28 +13,7 @@ import {
     ToastAndroid
 } from 'react-native';
 
-import CameraDetails from './native-camera-details'
-
-type
-Props = {};
-const actualPlatform = Platform.OS;
-
 export default class App extends Component {
-
-    constructor(){
-        super();
-        this.state={name:"Yolo", cameraId:{}, cameraDetails:""}
-    }
-
-    componentWillMount() {
-        CameraDetails.getCameras((msg) => {
-            this.setState({cameraId:msg})
-        })
-        CameraDetails.getCameraDetails("0", (msg) => {
-            this.setState({cameraDetails:msg})
-        })
-    }
-
     render() {
         return (
             <View style={styles.container}>
@@ -72,24 +51,10 @@ export default class App extends Component {
                         onPress={this.getCharacs.bind(this)}
                         style={styles.capture}
                     >
-                        <Text style={{fontSize: 10}}> Get characs </Text>
+                        <Text style={{fontSize: 10}}> Get ratio </Text>
                     </TouchableOpacity>
                 </View>
             </View>
-            /*
-                        <View>
-                            <Text>
-                                We will set the navigation bar color! {this.state.name}
-                            </Text>
-                            <Text>
-                                cameras id: {JSON.stringify(this.state.cameraId)}
-                            </Text>
-                            <Text>
-                                {this.state.cameraDetails}
-                            </Text>
-                        </View>
-            */
-
         );
     }
 
